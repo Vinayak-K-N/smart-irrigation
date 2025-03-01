@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import os  # <-- Added to handle environment variable for port
 
 app = Flask(__name__)
 
@@ -26,4 +27,5 @@ def get_data():
     return jsonify(latest_data), 200
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000)
+    port = int(os.environ.get('PORT', 10000))  # Use PORT from Render, fallback to 10000 for local testing
+    app.run(host='0.0.0.0', port=port)
