@@ -31,5 +31,5 @@ def get_data():
     return jsonify(latest_data), 200
 
 if _name_ == '_main_':
-    port = int(os.environ.get('PORT', 10000))  # Use PORT from Render, fallback to 10000 for local testing
+    port = int(os.environ.get('PORT', 8080))  # Use PORT from Render, fallback to 10000 for local testing
     app.run(host='0.0.0.0', port=port)
